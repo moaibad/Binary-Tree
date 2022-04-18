@@ -44,6 +44,7 @@ address insertNode(Tree *T, int id,char* nama){
 
 }
 
+
 address minValueNode(address node){
 	address current = node;
 	
@@ -52,6 +53,7 @@ address minValueNode(address node){
 	}
 	return current;
 }
+
 
 address deleteNode(Tree *T, int id){
 	
@@ -87,6 +89,7 @@ address deleteNode(Tree *T, int id){
 	return Root(*T);
 }
 
+
 address searchNode(Tree *T, int id){
 	if(Root(*T) == Nil || Id(Root(*T)) == id){
 		return Root(*T);
@@ -99,6 +102,50 @@ address searchNode(Tree *T, int id){
 		return searchNode(&Right(Root(*T)), id);
 	}
 }
+
+
+void insertPegawai(Tree *T, int id, char* nama){
+	address temp;
+	temp = Nil;
+	temp = searchNode(&*T,id);
+	
+	if(temp != Nil){
+		printf("Pegawai %s dengan ID %d tidak berhasil dimasukan karena terdapat kesamaan ID!\n",nama,id);
+	}
+	else{
+		insertNode(&*T, id, nama);
+		printf("Pegawai %s dengan ID %d berhasil dimasukan\n", nama, id);
+	}
+}
+
+
+void deletePegawai(Tree *T, int id){
+	address temp;
+	temp = searchNode(&*T,id);
+	
+	if(temp == Nil){
+		printf("Penghapusan gagal, pegawai dengan ID %d tidak ditemukan!\n",id);
+	}
+	else{
+		printf("Pegawai %s dengan ID %d berhasil dihapus\n", Nama(temp), id);
+		deleteNode(&*T,id);
+	}
+}
+
+
+void searchPegawai(Tree T, int id){
+	address temp;
+	temp = searchNode(&T,id);
+	
+	if(temp == Nil){
+		printf("Pegawai dengan ID %d tidak ditemukan!\n",id);
+	}
+	else{
+		printf("Pegawai dengan ID %d adalah %s\n", id, Nama(temp));
+	}
+	
+}
+
 
 void preOrder(address root){
 	if (root != Nil){

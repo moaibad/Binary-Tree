@@ -5,11 +5,10 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	Tree T,U;
+	Tree T;
 	address temp;
 
 	initTree(&T);
-	initTree(&U);
 	
 	/*insertNode(&T,45,"Dhika Putra");
 	insertNode(&T,87,"Chandra Diva");
@@ -26,21 +25,28 @@ int main(int argc, char *argv[]) {
 	insertNode(&T,11,"Izhar Subekti");
 	insertNode(&T,41,"Mustofa Sabri");*/
 	
-	insertNode(&T,98,"Dhika Putra");
-	insertNode(&T,11,"Chandra Diva");
-	insertNode(&T,33,"Abdullah Ahugrah");
-	insertNode(&T,28,"Bayu Virani");
-	insertNode(&T,26,"Chaerul Ardina");
-	insertNode(&T,63,"Fikri Syabantika");
-	insertNode(&T,42,"Christian Dayanti");
-	insertNode(&T,66,"Izhar Subekti");
-	insertNode(&T,94,"Mustofa Sabri");
+	insertNode(&T,98,"Michael");
+	insertNode(&T,11,"Carreon");
+	insertNode(&T,33,"Ban");
+	insertNode(&T,28,"Sung Joon");
+	insertNode(&T,26,"Sung Taehoon");
+	insertNode(&T,63,"Minwoo");
+	insertNode(&T,42,"Hong Yubin");
+	insertNode(&T,66,"Hong Jay");
+	insertNode(&T,94,"Ghani");
 	
 	inOrder(Root(T));
 	printf("==============================================\n");
-	preOrder(Root(T));
-	
-	temp = searchNode(&T,42);
+	insertPegawai(&T,111,"Seok Woo");
+	insertPegawai(&T,111,"Jahyun");
+	printf("==============================================\n");
 
+	inOrder(Root(T));
+	
+	printf("==============================================\n");
+	deletePegawai(&T, 66);
+	printf("==============================================\n");
+	
+	inOrder(Root(T));
 	return 0;
 }
