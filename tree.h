@@ -16,8 +16,8 @@
 #define Nil NULL
 #define Nama(P) (P)->nama
 #define Id(P) (P)->id
-#define Left(P) (P)->Left
-#define Right(P) (P)->Right
+#define Left(P) (P)->left
+#define Right(P) (P)->right
 #define Root(T) (T).root
 
 typedef struct tElmTree *address;
@@ -31,7 +31,7 @@ typedef struct tElmTree{
 
 
 typedef struct{
-	nbAddr root;
+	address root;
 }Tree;
 
 
