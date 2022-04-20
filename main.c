@@ -66,20 +66,20 @@ int main(int argc, char *argv[]) {
    			if(valid==1){
    				valid=0;
    				printf("\nData pegawai berhasil dimasukan\n");
-	   			insertNode(&T,45,"Dhika Putra");
-	 			insertNode(&T,87,"Chandra Diva");
-	 			insertNode(&T,65,"Abdullah Ahugrah");
-	 			insertNode(&T,39,"Bayu Virani");
-	 			insertNode(&T,92,"Chaerul Ardina");
-	 			insertNode(&T,88,"Fikri Syabantika");
-	 			insertNode(&T,73,"Christian Dayanti");
-	 			insertNode(&T,58,"Haris Anjani");
-	 			insertNode(&T,47,"Aprian Amalina");
-	 			insertNode(&T,62,"Doni Assodiqin");
-	 			insertNode(&T,59,"Marvel Tilasnuari");
-		 		insertNode(&T,64,"Hilman Ardiansyah");
-	 			insertNode(&T,11,"Izhar Subekti");
-	 			insertNode(&T,41,"Mustofa Sabri");
+	   			insertPegawai(&T,45,"Dhika Putra");
+	 			insertPegawai(&T,87,"Chandra Diva");
+	 			insertPegawai(&T,65,"Abdullah Ahugrah");
+	 			insertPegawai(&T,39,"Bayu Virani");
+	 			insertPegawai(&T,92,"Chaerul Ardina");
+	 			insertPegawai(&T,88,"Fikri Syabantika");
+	 			insertPegawai(&T,73,"Christian Dayanti");
+	 			insertPegawai(&T,58,"Haris Anjani");
+	 			insertPegawai(&T,47,"Aprian Amalina");
+	 			insertPegawai(&T,62,"Doni Assodiqin");
+	 			insertPegawai(&T,59,"Marvel Tilasnuari");
+		 		insertPegawai(&T,64,"Hilman Ardiansyah");
+	 			insertPegawai(&T,11,"Izhar Subekti");
+	 			insertPegawai(&T,41,"Mustofa Sabri");
 	 			printf("\nDAFTAR PEGAWAI SEKARANG:\n\n");
 				printPegawai(Root(T));
 			}
