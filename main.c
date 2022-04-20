@@ -26,8 +26,6 @@ int main(int argc, char *argv[]) {
    			printf("Masukkan ID Pegawai : ");
    			scanf("%d",&id);
    			insertPegawai(&T,id,nama);
-   			printf("\nDAFTAR PEGAWAI:\n\n");
-   			printPegawai(Root(T));
    			printf("\n");
    			system("pause");
    			showMenu();
@@ -41,8 +39,6 @@ int main(int argc, char *argv[]) {
    			deletePegawai(&T, id);
    			printf("\n");
    			system("pause");
-   			printf("\nDAFTAR PEGAWAI SEKARANG:\n\n");
-   			printPegawai(Root(T));
    			printf("\n");
    			system("pause");
    			showMenu();
@@ -80,8 +76,6 @@ int main(int argc, char *argv[]) {
 		 		insertPegawai(&T,64,"Hilman Ardiansyah");
 	 			insertPegawai(&T,11,"Izhar Subekti");
 	 			insertPegawai(&T,41,"Mustofa Sabri");
-	 			printf("\nDAFTAR PEGAWAI SEKARANG:\n\n");
-				printPegawai(Root(T));
 			}
 			else{
 				printf("Data pegawai tidak berhasil dimasukan, data sudah dimasukan sebelumnya!\n");
@@ -110,10 +104,8 @@ int main(int argc, char *argv[]) {
 void showMenu() {
 	system("cls");
  	printf("============= PROGRAM DATA PEGAWAI =============\n");
- 	printf("1] Menambah Data Pegawai Baru dan Menampilkan\n");
- 	printf("   Seluruh Data Pegawai\n\n");
- 	printf("2] Menghapus Data Pegawai berdasarkan ID dan\n");
- 	printf("   Menampikan Seluruh Data Pegawai\n\n");
+ 	printf("1] Menambah Data Pegawai Baru \n\n");
+ 	printf("2] Menghapus Data Pegawai berdasarkan ID\n\n");
  	printf("3] Mencari Data Pegawai berdasarkan ID\n\n");
  	printf("4] Menampikan Seluruh Data Pegawai\n\n");
  	printf("5] Menambah 14 Data Pegawai Dari Deskripsi Kasus\n\n");
