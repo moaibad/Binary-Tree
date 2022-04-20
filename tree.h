@@ -34,6 +34,20 @@ typedef struct{
 	address root;
 }Tree;
 
+void initTree(Tree *T);
+void deleteTree(Tree *T);
+address createNode(int id, char* nama);
+address insertNode(Tree *T, int id,char* nama);
+address minValueNode(address node);
+address deleteNode(Tree *T, int id);
+address searchNode(Tree *T, int id);
+void insertPegawai(Tree *T, int id, char* nama);
+void deletePegawai(Tree *T, int id);
+void searchPegawai(Tree T, int id);
+void preOrder(address root);
+void inOrder(address root);
+void postOrder(address root);
+void printPegawai(address root);
 
 
 #endif
