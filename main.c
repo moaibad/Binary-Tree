@@ -96,8 +96,33 @@ int main(int argc, char *argv[]) {
    			system("pause");
    			showMenu();
    			break;
+   		case 7:
+   			printf("\nDAFTAR PEGAWAI:\n\n");
+   			if(Root(T) == Nil){
+			printf("Data pegawai Kosong!\n\n");
+			}
+			else{
+				preOrder(Root(T));
+			}
+   			printf("\n");
+   			system("pause");
+   			showMenu();
+   			break;
+   		case 8:
+   			printf("\nDAFTAR PEGAWAI:\n\n");
+   			if(Root(T) == Nil){
+			printf("Data pegawai Kosong!\n\n");
+			}
+			else{
+				postOrder(Root(T));
+			}
+   			printf("\n");
+   			system("pause");
+   			showMenu();
+   			break;
  		}
-	 }while(pilih<7);
+		
+	 }while(pilih<9);
  	return 0;
 }
 
@@ -107,10 +132,12 @@ void showMenu() {
  	printf("1] Menambah Data Pegawai Baru \n\n");
  	printf("2] Menghapus Data Pegawai berdasarkan ID\n\n");
  	printf("3] Mencari Data Pegawai berdasarkan ID\n\n");
- 	printf("4] Menampikan Seluruh Data Pegawai\n\n");
+ 	printf("4] Menampikan Seluruh Data Pegawai (inOrder)\n\n");
  	printf("5] Menambah 14 Data Pegawai Dari Deskripsi Kasus\n\n");
  	printf("6] Hapus Seluruh Data Pegawai\n\n");
- 	printf("7] Quit\n");
+ 	printf("7] Menampikan Seluruh Data Pegawai (preOrder)\n\n");
+ 	printf("8] Menampikan Seluruh Data Pegawai (postOrder)\n\n");
+ 	printf("9] Quit\n");
  	printf("================================================\n");
  	printf("Masukkan Pilihanmu : ");
  	scanf("%d",&pilih);
