@@ -7,12 +7,21 @@
 */
 
 #include <malloc.h>
+#include <string.h>
 #include "tree.h"
 
 void initTree(Tree *T){
 	Root(*T) = Nil;
 }
 
+void deleteTree(Tree *T){
+	if((Root(*T)) != Nil){
+		deleteTree(&Left(Root(*T)));
+		deleteTree(&Right(Root(*T)));
+		Root(*T) = Nil;
+		free(Root(*T));
+	}
+}
 
 address createNode(int id, char* nama){
 	address P;
@@ -70,17 +79,20 @@ address deleteNode(Tree *T, int id){
 	else{
 		if(Left(Root(*T)) == Nil){
 			address temp = Right(Root(*T));
+			Root(*T) = Nil;
 			free(Root(*T));
 			return temp;
 		}
 		else if(Right(Root(*T)) == Nil){
 			address temp = Left(Root(*T));
+			Root(*T) = Nil;
 			free(Root(*T));
 			return temp;
 		}
 		else{
 			address temp = minValueNode(Right(Root(*T)));
 			Id(Root(*T)) = Id(temp);
+			strcpy(Nama(Root(*T)),Nama(temp));
 			Right(Root(*T)) = deleteNode(&Right(Root(*T)),Id(temp));
 		}
 		
@@ -110,11 +122,11 @@ void insertPegawai(Tree *T, int id, char* nama){
 	temp = searchNode(&*T,id);
 	
 	if(temp != Nil){
-		printf("Pegawai %s dengan ID %d tidak berhasil dimasukan karena terdapat kesamaan ID!\n",nama,id);
+		printf("\nPegawai %s dengan ID %d tidak berhasil dimasukan karena terdapat kesamaan ID!\n",nama,id);
 	}
 	else{
 		insertNode(&*T, id, nama);
-		printf("Pegawai %s dengan ID %d berhasil dimasukan\n", nama, id);
+		printf("\nPegawai %s dengan ID %d berhasil dimasukan\n", nama, id);
 	}
 }
 
@@ -124,10 +136,10 @@ void deletePegawai(Tree *T, int id){
 	temp = searchNode(&*T,id);
 	
 	if(temp == Nil){
-		printf("Penghapusan gagal, pegawai dengan ID %d tidak ditemukan!\n",id);
+		printf("\nPenghapusan gagal, pegawai dengan ID %d tidak ditemukan!\n",id);
 	}
 	else{
-		printf("Pegawai %s dengan ID %d berhasil dihapus\n", Nama(temp), id);
+		printf("\nPegawai %s dengan ID %d berhasil dihapus\n", Nama(temp), id);
 		deleteNode(&*T,id);
 	}
 }
@@ -138,10 +150,10 @@ void searchPegawai(Tree T, int id){
 	temp = searchNode(&T,id);
 	
 	if(temp == Nil){
-		printf("Pegawai dengan ID %d tidak ditemukan!\n",id);
+		printf("\nPegawai dengan ID %d tidak ditemukan!\n",id);
 	}
 	else{
-		printf("Pegawai dengan ID %d adalah %s\n", id, Nama(temp));
+		printf("\nPegawai dengan ID %d adalah %s\n", id, Nama(temp));
 	}
 	
 }
@@ -170,6 +182,15 @@ void postOrder(address root){
 		inOrder(Left(root));
 		inOrder(Right(root));
 		printf("Nama : %s\nID : %d\n\n", Nama(root),Id(root));
+	}
+}
+
+void printPegawai(address root){
+	if(root == Nil){
+		printf("Data pegawai Kosong!\n\n");
+	}
+	else{
+		inOrder(root);
 	}
 }
 
