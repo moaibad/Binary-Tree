@@ -6,7 +6,6 @@
 
 void showMenu();
 int pilih;
-int valid=1;
 
 int main(int argc, char *argv[]) {
 	Tree T;
@@ -31,14 +30,17 @@ int main(int argc, char *argv[]) {
    			showMenu();
    			break;
   		case 2:
-  			printf("\nDAFTAR PEGAWAI:\n\n");
-   			printPegawai(Root(T));
-   			printf("\n");
-  		 	printf("Masukkan ID Pegawai yang Akan Dihapus: ");
-   			scanf("%d",&id);
-   			deletePegawai(&T, id);
-   			printf("\n");
-   			system("pause");
+  			if((Root(T)) != Nil){
+  				printf("\nDAFTAR PEGAWAI:\n\n");
+	   			printPegawai(Root(T));
+	   			printf("\n");
+	  		 	printf("Masukkan ID Pegawai yang Akan Dihapus: ");
+	   			scanf("%d",&id);
+	   			deletePegawai(&T, id);
+			}
+			else{
+				printf("\nData kosong, tidak ada data yang bisa dihapus!\n");
+			}
    			printf("\n");
    			system("pause");
    			showMenu();
@@ -59,40 +61,28 @@ int main(int argc, char *argv[]) {
    			showMenu();
    			break;
    		case 5:
-   			if(valid==1){
-   				valid=0;
-   				printf("\nData pegawai berhasil dimasukan\n");
-	   			insertPegawai(&T,45,"Dhika Putra");
-	 			insertPegawai(&T,87,"Chandra Diva");
-	 			insertPegawai(&T,65,"Abdullah Ahugrah");
-	 			insertPegawai(&T,39,"Bayu Virani");
-	 			insertPegawai(&T,92,"Chaerul Ardina");
-	 			insertPegawai(&T,88,"Fikri Syabantika");
-	 			insertPegawai(&T,73,"Christian Dayanti");
-	 			insertPegawai(&T,58,"Haris Anjani");
-	 			insertPegawai(&T,47,"Aprian Amalina");
-	 			insertPegawai(&T,62,"Doni Assodiqin");
-	 			insertPegawai(&T,59,"Marvel Tilasnuari");
-		 		insertPegawai(&T,64,"Hilman Ardiansyah");
-	 			insertPegawai(&T,11,"Izhar Subekti");
-	 			insertPegawai(&T,41,"Mustofa Sabri");
-			}
-			else{
-				printf("Data pegawai tidak berhasil dimasukan, data sudah dimasukan sebelumnya!\n");
-			}
+			printf("\nData pegawai berhasil dimasukan\n");
+   			insertPegawai(&T,45,"Dhika Putra");
+ 			insertPegawai(&T,87,"Chandra Diva");
+ 			insertPegawai(&T,65,"Abdullah Ahugrah");
+ 			insertPegawai(&T,39,"Bayu Virani");
+ 			insertPegawai(&T,92,"Chaerul Ardina");
+ 			insertPegawai(&T,88,"Fikri Syabantika");
+ 			insertPegawai(&T,73,"Christian Dayanti");
+ 			insertPegawai(&T,58,"Haris Anjani");
+ 			insertPegawai(&T,47,"Aprian Amalina");
+ 			insertPegawai(&T,62,"Doni Assodiqin");
+ 			insertPegawai(&T,59,"Marvel Tilasnuari");
+	 		insertPegawai(&T,64,"Hilman Ardiansyah");
+ 			insertPegawai(&T,11,"Izhar Subekti");
+ 			insertPegawai(&T,41,"Mustofa Sabri");
 			printf("\n");
    			system("pause");
    			showMenu();
    			break;
    		case 6:
-   			valid=1;
    			deleteTree(&T);
-   			printf("\nSeluruh data pegawai berhasil dihapus\n");
-   			printf("\n");
-   			system("pause");
-   			printf("\nDAFTAR PEGAWAI SEKARANG:\n\n");
-			printPegawai(Root(T));
-			printf("\n");
+   			printf("\nSeluruh data pegawai berhasil dihapus\n\n");
    			system("pause");
    			showMenu();
    			break;
@@ -120,9 +110,14 @@ int main(int argc, char *argv[]) {
    			system("pause");
    			showMenu();
    			break;
+		default:
+			printf("\nMohon maaf opsi menu salah. Silahkan ulangi lagi\n\n");
+			system("pause");
+			showMenu();
+			break;
  		}
 		
-	 }while(pilih<9);
+	 }while(pilih!=9);
  	return 0;
 }
 

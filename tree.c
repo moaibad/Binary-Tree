@@ -10,10 +10,22 @@
 #include <string.h>
 #include "tree.h"
 
+
+/*
+Author	: Berliana Elfada
+I.S 	: Tree belum terbentuk
+F.S		: Tree sudah terbentuk dengan root = nil
+*/
 void initTree(Tree *T){
 	Root(*T) = Nil;
 }
 
+
+/*
+Author	: Berliana Elfada
+I.S 	: Terdapat data dalam tree
+F.S		: Seluruh data pada tree terhapus
+*/
 void deleteTree(Tree *T){
 	if((Root(*T)) != Nil){
 		deleteTree(&Left(Root(*T)));
@@ -23,6 +35,12 @@ void deleteTree(Tree *T){
 	}
 }
 
+
+/*
+Author	: Berliana Elfada
+I.S 	: Terdapat data dalam tree
+F.S		: Seluruh data pada tree terhapus
+*/
 address createNode(int id, char* nama){
 	address P;
 	P =(address) malloc(sizeof(ElmTree));
@@ -36,6 +54,11 @@ address createNode(int id, char* nama){
 }
 
 
+/*
+Author	: Mohammad Fathul'Ibad
+I.S 	: node belum terdapat pada tree
+F.S		: node sudah dimasukan ke dalam tree
+*/
 address insertNode(Tree *T, int id,char* nama){
 	
 	if(Root(*T) == Nil){
@@ -54,6 +77,12 @@ address insertNode(Tree *T, int id,char* nama){
 }
 
 
+/*
+Author	: GeeksforGeeks
+I.S 	: nilai key/id terkecil dari tree belum ditemukan
+F.S		: nilai key/id terkecil ditemukan
+Modified by : Mohammad Fathul'Ibad
+*/
 address minValueNode(address node){
 	address current = node;
 	
@@ -64,6 +93,12 @@ address minValueNode(address node){
 }
 
 
+/*
+Author	: GeeksforGeeks
+I.S 	: node terdapat pada tree
+F.S		: node terhapus dari tree
+Modified by : Mohammad Fathul'Ibad
+*/
 address deleteNode(Tree *T, int id){
 	
 	if(Root(*T) == Nil){
@@ -102,6 +137,11 @@ address deleteNode(Tree *T, int id){
 }
 
 
+/*
+Author	: Mohammad Fathul'Ibad
+I.S 	: node yang dicari belum ditemukan
+F.S		: node yang dicari ditemukan
+*/
 address searchNode(Tree *T, int id){
 	if(Root(*T) == Nil || Id(Root(*T)) == id){
 		return Root(*T);
@@ -116,6 +156,11 @@ address searchNode(Tree *T, int id){
 }
 
 
+/*
+Author	: Raihan Shidqi Pangestu
+I.S 	: data pegawai belum terdapat pada tree
+F.S		: data pegawai sudah dimasukan ke dalam tree
+*/
 void insertPegawai(Tree *T, int id, char* nama){
 	address temp;
 	temp = Nil;
@@ -131,6 +176,11 @@ void insertPegawai(Tree *T, int id, char* nama){
 }
 
 
+/*
+Author	: Raihan Shidqi Pangestu
+I.S 	: data pegawai masih terdapat pada tree
+F.S		: data pegawai terhapus dari tree
+*/
 void deletePegawai(Tree *T, int id){
 	address temp;
 	temp = searchNode(&*T,id);
@@ -145,6 +195,11 @@ void deletePegawai(Tree *T, int id){
 }
 
 
+/*
+Author	: Raihan Shidqi Pangestu
+I.S 	: data pegawai belum ditampilkan di layar
+F.S		: data pegawai ditampilkan secara inorder
+*/
 void searchPegawai(Tree T, int id){
 	address temp;
 	temp = searchNode(&T,id);
@@ -159,6 +214,11 @@ void searchPegawai(Tree T, int id){
 }
 
 
+/*
+Author	: Annisa Dinda Gantini
+I.S 	: data belum ditampilkan di layar
+F.S		: data ditampilkan secara preorder
+*/
 void preOrder(address root){
 	if (root != Nil){
 		printf("Nama : %s\nID : %d\n\n", Nama(root),Id(root));
@@ -168,6 +228,11 @@ void preOrder(address root){
 }
 
 
+/*
+Author	: Annisa Dinda Gantini
+I.S 	: data belum ditampilkan di layar
+F.S		: data ditampilkan secara inorder
+*/
 void inOrder(address root){
 	if (root != Nil){
 		inOrder(Left(root));
@@ -177,6 +242,11 @@ void inOrder(address root){
 }
 
 
+/*
+Author	: Annisa Dinda Gantini
+I.S 	: data belum ditampilkan di layar
+F.S		: data ditampilkan secara postorder
+*/
 void postOrder(address root){
 	if (root != Nil){
 		inOrder(Left(root));
@@ -185,6 +255,12 @@ void postOrder(address root){
 	}
 }
 
+
+/*
+Author	: Raihan Shidqi Pangestu
+I.S 	: data pegawai belum ditampilkan di layar
+F.S		: data pegawai ditampilkan secara inorder
+*/
 void printPegawai(address root){
 	if(root == Nil){
 		printf("Data pegawai Kosong!\n\n");
